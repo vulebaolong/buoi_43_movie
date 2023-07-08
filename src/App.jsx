@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UserLayout from './layouts/UserLayout/UserLayout';
 import './api/baseApi'
+import RegisterPage from './pages/RegisterPage/RegisterPage';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           {/* USER LAYOUT */}
           <Route element={<UserLayout />}>
               <Route path='login' element={<LoginPage />} />
-              {/* <Route path='signin' element={<SignIn />} /> */}
+              <Route path='register' element={<RegisterPage />} />
           </Route>
       
           {/* OTHER */}

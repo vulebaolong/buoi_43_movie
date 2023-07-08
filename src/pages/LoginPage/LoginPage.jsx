@@ -4,11 +4,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../redux/slices/userSlice";
+import { lcStorage } from "../../helpers/localStorage";
+import { USER_LOGIN } from "../../contants/contants";
 
 function LoginPage() {
     const [messageApi, contextHolder] = message.useMessage();
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const mes = (type, content) => {
         messageApi.open({
@@ -22,10 +24,11 @@ function LoginPage() {
         axios
             .post("/QuanLyNguoiDung/DangNhap", values)
             .then((result) => {
-                const {data, status} = result
+                const { data, status } = result;
                 mes("success", "Đăng nhập thành công");
-                dispatch(setLogin(data.content))
-                navigate('/home')
+                dispatch(setLogin(data.content));
+                lcStorage.set(USER_LOGIN, data.content);
+                navigate("/home");
             })
             .catch((error) => {
                 console.log(error);

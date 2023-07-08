@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { lcStorage } from "../../helpers/localStorage";
+import { USER_LOGIN } from "../../contants/contants";
 
 const initialState = {
-    userInfo: null,
+    userInfo: lcStorage.get(USER_LOGIN),
 };
 
 const userSlice = createSlice({
