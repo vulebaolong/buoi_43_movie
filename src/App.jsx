@@ -6,6 +6,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import UserLayout from './layouts/UserLayout/UserLayout';
 import './api/baseApi'
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import DetailPage from './pages/DetailPage/DetailPage';
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route element={<HomeLayout />}>
               <Route index element={<HomePage />} />
               <Route path='home' element={<HomePage />} />
+              <Route path='/detail/:id' element={<DetailPage />} />
           </Route>
       
           {/* USER LAYOUT */}
@@ -26,7 +29,8 @@ function App() {
           </Route>
       
           {/* OTHER */}
-          <Route path='*' element={<Navigate to={'/'} />} />
+          {/* <Route path='*' element={<Navigate to={'/'} />} /> */}
+          <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </div>
   );

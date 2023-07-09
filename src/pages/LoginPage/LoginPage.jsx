@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../redux/slices/userSlice";
 import { lcStorage } from "../../helpers/localStorage";
 import { USER_LOGIN } from "../../contants/contants";
+import Lottie from "lottie-react";
+import bgAnimation from "./bgAnimation.json" 
 
 function LoginPage() {
     const [messageApi, contextHolder] = message.useMessage();
@@ -44,63 +46,68 @@ function LoginPage() {
         <>
             {contextHolder}
             <div className="h-screen flex items-center justify-center">
-                <div className="container p-10 rounded dark:bg-slate-700">
-                    <Form
-                        className="mx-auto"
-                        name="basic"
-                        labelCol={{
-                            span: 6,
-                        }}
-                        wrapperCol={{
-                            span: 16,
-                        }}
-                        style={{
-                            maxWidth: 600,
-                        }}
-                        initialValues={{
-                            remember: true,
-                        }}
-                        onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}
-                        autoComplete="off"
-                    >
-                        <Form.Item
-                            label="Username"
-                            name="taiKhoan"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: "Please input your username!",
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
-
-                        <Form.Item
-                            label="Password"
-                            name="matKhau"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: "Please input your password!",
-                                },
-                            ]}
-                        >
-                            <Input.Password />
-                        </Form.Item>
-
-                        <Form.Item
+                <div className="container p-10 rounded dark:bg-slate-700 flex">
+                    <div className="w-1/2 h-full">
+                    <Lottie animationData={bgAnimation} loop={true} />
+                    </div>
+                    <div className="w-1/2 flex items-center">
+                        <Form
+                            className="mx-auto"
+                            name="basic"
+                            labelCol={{
+                                span: 8,
+                            }}
                             wrapperCol={{
-                                offset: 6,
                                 span: 16,
                             }}
+                            style={{
+                                maxWidth: 600,
+                            }}
+                            initialValues={{
+                                remember: true,
+                            }}
+                            onFinish={onFinish}
+                            onFinishFailed={onFinishFailed}
+                            autoComplete="off"
                         >
-                            <Button className="bg-blue-500 hover:bg-blue-900" type="primary" htmlType="submit">
-                                Submit
-                            </Button>
-                        </Form.Item>
-                    </Form>
+                            <Form.Item
+                                label="Username"
+                                name="taiKhoan"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your username!",
+                                    },
+                                ]}
+                            >
+                                <Input />
+                            </Form.Item>
+
+                            <Form.Item
+                                label="Password"
+                                name="matKhau"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your password!",
+                                    },
+                                ]}
+                            >
+                                <Input.Password />
+                            </Form.Item>
+
+                            <Form.Item
+                                wrapperCol={{
+                                    offset: 8,
+                                    span: 16,
+                                }}
+                            >
+                                <Button className="bg-blue-500 hover:bg-blue-900" type="primary" htmlType="submit">
+                                    Submit
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </div>
                 </div>
             </div>
         </>

@@ -1,12 +1,12 @@
 import React from "react";
+import ListMovie from "./ListMovie/ListMovie";
+import TasksMovie from "./TasksMovie/TasksMovie";
 
 function HomePage() {
     return (
         <>
-            <div className="container">
-                HomePage
-                <h1 className="text-3xl font-bold underline">Hello world!</h1>
-            </div>
+            <ListMovie />
+            <TasksMovie />
         </>
     );
 }
