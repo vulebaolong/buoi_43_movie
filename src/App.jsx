@@ -8,11 +8,12 @@ import './api/baseApi'
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Spinner from "./components/Spinner/Spinner";
 
 function App() {
   return (
     <div className="App">
-     
+     <Spinner />
       
       <Routes>
           {/* HOME LAYOUT */}
